@@ -1,10 +1,19 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { Component } from 'react';
 import Routes from './routes';
-// import { Container } from './styles';
+import Home from './pages/Home';
+import Application from './pages/Application';
+import {Provider} from 'react-redux';
+import store from './store';
 
-export default function App() {
+class App extends Component {
+  render(){
   return (
-    <Routes/>
+    <Provider store={store}>
+      <Home />
+      <Application/>
+    </Provider>
   );
+  }
 }
+
+export default App;

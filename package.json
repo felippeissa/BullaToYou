@@ -24,6 +24,7 @@
     "@react-native-community/eslint-config": "^0.0.3",
     "babel-jest": "^24.1.0",
     "jest": "^24.1.0",
+    "json-server": "^0.15.1",
     "metro-react-native-babel-preset": "^0.51.1",
     "react-test-renderer": "16.8.1"
   },
