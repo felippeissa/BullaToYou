@@ -1,59 +1,68 @@
 import React, { Component } from 'react';
-import { View , Text , TouchableOpacity, FlatList } from 'react-native';
-import { Container } from './styles';
+import { SafeAreaView, View, FlatList, StyleSheet,TouchableOpacity, Image,Text } from 'react-native';
+
+//import logo from './assets/instagram.png';
+import logofacebook from '../../assets/facebookicon.png';
 
 export default class Home extends Component{
   static navigationOptions = {
     header: null,
   };
-
   state = {
       apps:[
-        {
-          id: 1,
-          image: "",
-          title: "Titulo da Aplicacao 1",
-          desc: "Essa é a descrição da Aplicacao 1",
-          link: [
-            {
-              id: 1,
-              link: "",
-            },
-          ],
-        },
-        {
-          id: 2,
-          image: "",
-          title: "Titulo da Aplicacao 2",
-          desc: "Essa é a descrição da Aplicacao 2",
-          link: [
-            {
-              id: 1,
-              link: "",
-            },
-          ],
-        },
-      ]
-  };
+        { id: 1,image: logofacebook ,title: "Instituto Bulla",desc: "Essa é a descrição da Aplicacao 1.Feito A asdadsadasdsada sad sad as dasd asd asd sad as dsad.",link: [{id: 1,link: "",},],},
+        { id: 2,image: logofacebook,title: "Gestor Bulla WEB",desc: "Essa é a descrição da Aplicacao 1.Feito A asdadsadasdsada sad sad as dasd asd asd sad as dsad.",link: [{id: 1,link: "",},],},
+        { id: 3,image: logofacebook,title: "Dr. Bulla",desc: "Essa é a descrição da Aplicacao 1.Feito A asdadsadasdsada sad sad as dasd asd asd sad as dsad.",link: [{id: 1,link: "",},],},
+        { id: 4,image: logofacebook,title: "Cadastro Bulla",desc: "Essa é a descrição da Aplicacao 1.Feito A asdadsadasdsada sad sad as dasd asd asd sad as dsad.",link: [{id: 1,link: "",},],},
+        { id: 5,image: logofacebook,title: "Facebook Instituto Bulla",desc: "Essa é a descrição da Aplicacao 1.Feito A asdadsadasdsada sad sad as dasd asd asd sad as dsad.",link: [{id: 1,link: "",},],},
+        { id: 6,image: logofacebook,title: "Instagram Instituto Bulla",desc: "Essa é a descrição da Aplicacao 1.Feito A asdadsadasdsada sad sad as dasd asd asd sad as dsad.",link: [{id: 1,link: "",},],},
+        { id: 7,image: logofacebook,title: "Youtube do Instituto Bulla",desc: "Essa é a descrição da Aplicacao 1.Feito A asdadsadasdsada sad sad as dasd asd asd sad as dsad.",link: [{id: 1,link: "",},],},
+        { id: 8,image: logofacebook,title: "Suporte do Instituto Bulla",desc: "Essa é a descrição da Aplicacao 1.Feito A asdadsadasdsada sad sad as dasd asd asd sad as dsad.",link: [{id: 1,link: "",},],},
+        { id: 9,image: logofacebook,title: "Gestor Bulla Mobile",desc: "Essa é a descrição da Aplicacao 1.Feito A asdadsadasdsada sad sad as dasd asd asd sad as dsad.",link: [{id: 1,link: "",},],},
 
-  
+      ]
+  };  
+
   handleNavigateApplication = () => {
     this.props.navigation.navigate('Application');
   };
+
   render(){
+    const {apps} = this.state;
   return (
-    <Container>
-    <View>
-      <Text>
-        Home
-      </Text>
-      <TouchableOpacity onPress={this.handleNavigateApplication}>
-        <Text>
-          Navegar para Application
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <Text style={styles.text}>
+          BullaTools
         </Text>
+      </View>
+    <FlatList 
+    data={this.state.apps} 
+    numColumns={3}
+    renderItem={({ item }) => 
+      <TouchableOpacity onPress={this.handleNavigateApplication}>
+      <Image source={item.image} style={styles.image}></Image>
       </TouchableOpacity>
-    </View>
-    </Container>
+    }/>
+    
+    </SafeAreaView>
   );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FFFFFF"
+  },
+  image: {
+    width: 100, 
+    height: 100
+  },
+  text: { 
+    fontSize: 30,
+  },
+
+});

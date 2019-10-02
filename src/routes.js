@@ -5,8 +5,6 @@ import { createAppContainer, createStackNavigator } from 'react-navigation';
 import Home from './pages/Home';
 import Application from './pages/Application';
 
-import logo from './assets/instagram.png';
-
 export default createAppContainer(
   createStackNavigator({
     Home,
